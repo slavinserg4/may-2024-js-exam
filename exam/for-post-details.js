@@ -15,7 +15,20 @@ fetch(`https://jsonplaceholder.typicode.com/users/${userKey}/posts?id=${postKey}
         fetch(`https://jsonplaceholder.typicode.com/posts/${post[0].id}/comments`)
             .then(resp =>resp.json())
             .then(comment =>{
-                console.log(comment);
+                let mainCommentDiv = document.createElement('div');
+                mainCommentDiv.classList.add('mainCommentDiv');
+                for (const item of comment) {
+                    let commentDiv = document.createElement('div');
+                    commentDiv.classList.add('commentDiv')
+                    commentDiv.innerHTML = `
+                    <h4>postId: ${item.postId}</h4>
+                    <h4>Id: ${item.id}</h4>
+                    <h4>Name: ${item.name}</h4>
+                    <h4>Email: ${item.email}</h4>
+                    <h4>Body: ${item.body}</h4>`;
+                    mainCommentDiv.appendChild(commentDiv);
+                }
+                document.body.appendChild(mainCommentDiv);
             })
     })
 
