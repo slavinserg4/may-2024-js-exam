@@ -3,7 +3,6 @@ fetch(`https://jsonplaceholder.typicode.com/users?id=${userKey}`)
 .then(response => response.json())
 .then(user =>{
     let mainDiv = document.createElement('div');
-
     let div = document.createElement('div');
     let divSecond = document.createElement('div');
     let divThird = document.createElement('div');
@@ -66,11 +65,6 @@ fetch(`https://jsonplaceholder.typicode.com/users?id=${userKey}`)
                         location.href = 'post-details.html';
                         localStorage.setItem('PostKey', postTitle.id);
                     }
-
-
-
-
-
                 }
                 mainDivTitle.classList.add('MainDivTitle')
                 document.body.appendChild(mainDivTitle);
